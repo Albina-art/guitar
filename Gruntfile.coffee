@@ -28,17 +28,20 @@ module.exports = (grunt) ->
         tasks: ['haml'],
         options:
           atBegin: true
+          liverload: true
           # liverload: true
       concat:
         files: ["temp/templates.js", 'vendor/*.js', 'js/declare.js', 'js/api.js', 'js/controllers/*.js', 'js/init.js']
         tasks: ['concat:dev'],
         options:
           atBegin: true
+          liverload: true
       babel:
         files: 'temp/es/app/js'
         tasks: 'babel'
         options:
           atBegin: true
+          liverload: true
     concurrent:
       options:
         limit: 20
@@ -64,7 +67,8 @@ module.exports = (grunt) ->
 
 
   # Default task(s).
-  grunt.registerTask 'default', ['concurrent:cwatch']
+  # grunt.registerTask 'default', ['concurrent:cwatch']
+  grunt.registerTask 'default', ['haml','concat','babel']
   return
 # module.exports = (grunt) ->
 #   grunt.initConfig
