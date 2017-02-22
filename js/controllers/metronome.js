@@ -7,6 +7,7 @@ controller.metronome = () => {
     aids.push(`a${i}`)
   }
   show(HAML.metronome({min, max, aids}))
+     document.getElementById('tempwrite').value=document.getElementById('temp').value
   let num = 0
   var as
   as = document.getElementsByTagName('audio')
@@ -27,11 +28,21 @@ controller.metronome = () => {
     document.getElementById('startmetro').classList.add('hidden')
     document.getElementById('stopmetro').classList.remove('hidden')
   })
+  document.getElementById('tempwrite').addEventListener('change',(event) =>{
+    if( document.getElementById('temp').value > max){
+      document.getElementById('temp').value = max
+    }
+    else if( document.getElementById('temp').value < min){
+       document.getElementById('temp').value = min
+    }
+    else {
+       document.getElementById('temp').value = document.getElementById('tempwrite').value 
+    }
+  })
   document.getElementById('temp').addEventListener('change',(event) => {
+    document.getElementById('tempwrite').value= document.getElementById('temp').value
       if(flag == 1){
-        // console.log("dfef")
         clearInterval(iid)
-        //
         iid = start(event.target.value)
       }
   })

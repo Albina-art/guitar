@@ -14,7 +14,8 @@ body {
 	width: 360px;
 	height: 680px;
 	/*width: 100%;height: 100px;*/
-    background: url(../img/fone.jpg);
+    /*background: url(../img/fone.jpg);*/
+    background: url(../img/body.jpg);
 }
 .titl {
 /*background: white;*/
@@ -27,23 +28,9 @@ h1{
 	font-family:  GothicE;
 	/*color: tan;*/
 }
-.btn {
-  display: block;
-  background: #ff9800;
-  float: left;
-  clear: none;
-  color:  background: #940000;
-  padding: 9px 100px;
-  margin: 50px 44px 0px 60px;
-  cursor: pointer;
-  font-family: Verdana, sans-serif;
-  border-style:groove;
-}
-.btn#stopmetro {
-	margin-top: 10px;
-	color:#ff9800;
-  background: #940000;
-    /*border-color: white;*/
+.btn{
+  height: 50px;
+  width: 50px;
 }
 .metro-wrapper{
 	color: white;
@@ -52,10 +39,19 @@ h1{
 }
 #temp {
 	width: 200px;
-	margin-left: 100px;
+	margin-left: 90px;
 	height: 30px;
-  	margin-top: 100px;
+  	margin-top: 0px;
 }
 .hidden{
 	display:none;
+}
+.labtemp {
+	margin-top: 150px;
+    margin-left: 250px;
+}
+#tempwrite{
+	width: 200px;
+	/*text-align: center;*/
+	margin-left: 90px;
 }

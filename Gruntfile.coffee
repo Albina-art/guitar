@@ -23,34 +23,35 @@ module.exports = (grunt) ->
         src: ["temp/templates.js", 'vendor/*.js', 'js/declare.js', 'js/api.js', 'js/controllers/*.js', 'js/init.js']
         dest: 'temp/es/app.js'
     watch:
+      # haml:
+      options:
+        liverload: true
       haml:
         files: ['haml/[^~]*.haml'],
         tasks: ['haml'],
-        options:
-          atBegin: true
-          liverload: true
           # liverload: true
+        # liverload: true
       concat:
-        files: ["temp/templates.js", 'vendor/*.js', 'js/declare.js', 'js/api.js', 'js/controllers/*.js', 'js/init.js']
-        tasks: ['concat:dev'],
-        options:
-          atBegin: true
-          liverload: true
+        files: ['temp/templates.js', 'vendor/*.js', 'js/declare.js', 'js/api.js', 'js/controllers/*.js', 'js/init.js']
+        tasks: ['concat'],
+        # options:
+          # atBegin: true
+          # liverload: true
       babel:
-        files: 'temp/es/app/js'
+        files: 'temp/es/app.js'
         tasks: 'babel'
-        options:
-          atBegin: true
-          liverload: true
+        # options:
+          # atBegin: true
+          # liverload: true
     concurrent:
       options:
         limit: 20
         logConcurrentOutput: true
       cwatch: [
         # 'watch:css',
-        'watch:haml'
-        'watch:concat'
-        'watch:babel'
+        'watch:haml',
+        'watch:concat',
+        'watch:babel',
       ]
 
 
@@ -68,7 +69,7 @@ module.exports = (grunt) ->
 
   # Default task(s).
   # grunt.registerTask 'default', ['concurrent:cwatch']
-  grunt.registerTask 'default', ['haml','concat','babel']
+  grunt.registerTask 'default', ['haml','concat','babel','concurrent:cwatch']
   return
 # module.exports = (grunt) ->
 #   grunt.initConfig
