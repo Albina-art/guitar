@@ -34,14 +34,7 @@ h1{
 }
 .metro-wrapper{
 	color: white;
-	text-align: center;
 	font-family: Arial;
-}
-#temp {
-	width: 200px;
-	margin-left: 90px;
-	height: 30px;
-  	margin-top: 0px;
 }
 .hidden{
 	display:none;
@@ -50,8 +43,7 @@ h1{
 	margin-top: 150px;
     margin-left: 250px;
 }
-#tempwrite{
-	width: 200px;
-	/*text-align: center;*/
-	margin-left: 90px;
+#tempwrite, #temp{
+	width: 150px;
+	margin-left: 110px;
 }

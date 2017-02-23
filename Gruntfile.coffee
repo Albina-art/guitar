@@ -40,9 +40,9 @@ module.exports = (grunt) ->
       babel:
         files: 'temp/es/app.js'
         tasks: 'babel'
-        # options:
-          # atBegin: true
-          # liverload: true
+        options:
+          atBegin: true
+          liverload: true
     concurrent:
       options:
         limit: 20

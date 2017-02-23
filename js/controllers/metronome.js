@@ -1,6 +1,6 @@
 window.controller = window.controller || {}
 controller.metronome = () => {
-  let min = 40
+  let min = 40 
   let max = 200
   let aids = []
   for (let i=0; i< 1000; i++){
@@ -28,15 +28,21 @@ controller.metronome = () => {
     document.getElementById('startmetro').classList.add('hidden')
     document.getElementById('stopmetro').classList.remove('hidden')
   })
+  let val
   document.getElementById('tempwrite').addEventListener('change',(event) =>{
     if( document.getElementById('temp').value > max){
-      document.getElementById('temp').value = max
+      val = max
     }
     else if( document.getElementById('temp').value < min){
-       document.getElementById('temp').value = min
+      val = min
     }
     else {
-       document.getElementById('temp').value = document.getElementById('tempwrite').value 
+      val = document.getElementById('tempwrite').value
+    }
+    document.getElementById('temp').value = val
+    if (flag == 1) {
+        clearInterval(iid)
+        iid = start(event.target.value)
     }
   })
   document.getElementById('temp').addEventListener('change',(event) => {
@@ -52,6 +58,5 @@ controller.metronome = () => {
     document.getElementById('startmetro').classList.remove('hidden')
     document.getElementById('stopmetro').classList.add('hidden')
     clearInterval(iid)
-    // document.getElementById('metro').setAttribute('disabled', true)
   })
 }

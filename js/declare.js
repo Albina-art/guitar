@@ -6,15 +6,6 @@ window.show = (teml, target) => {
 	document.getElementById(target).innerHTML = teml
   //querySelector
 }
-// window.help = {
-//   setHandler: (id, ev, fn) => document.getElementById(id).addEventListener(ev, fn)
-// }
 window.controller = {}
 
-//const shell = require('electron').remote.shell;
-
-// $(document).on('click', 'a[href^="http"]',(event) =>{
-//     event.preventDefault();
-//     shell.openExternal(event.target.href);
-// });
 
