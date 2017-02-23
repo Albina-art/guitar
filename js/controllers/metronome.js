@@ -54,7 +54,7 @@ controller.metronome = () => {
       }
   })
 
-  hendlerEvent('stop','click', (event) => {
+  hendlerEvent('stopmetro','click', (event) => {
     flag = 0;
     [].forEach.call(as, (a) => {a.pause(); a.currentTime = 0;})
     start_.classList.remove('hidden')

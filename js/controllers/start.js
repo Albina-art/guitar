@@ -1,7 +1,7 @@
 window.controller = window.controller || {}
 controller.start = () => {
-  show(HAML.start(), 'app')
-  document.getElementById('metronome').addEventListener('click', () => {
+	show(HAML.start(), 'app')
+  	hendlerEvent('metronome', 'click', () => {
     document.getElementById('metronome').setAttribute('disabled', true)	
     controller.metronome()
   })
