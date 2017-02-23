@@ -17,6 +17,9 @@ body {
     /*background: url(../img/fone.jpg);*/
     background: url(../img/body.jpg);
 }
+#begin {
+	width: 60px;
+}
 .titl {
 	border: 3px;
 	margin-left: 11px;

@@ -1,3 +1,15 @@
 .test-wrapper {
 	
 }
+#testfone {
+	width: 100%;
+	height: 100px;
+}
+.test{
+	height: 35px;
+	width: 35px;
+	background-color: #290101;
+}
+.testtitl {
+	margin-left: 38px;
+}
