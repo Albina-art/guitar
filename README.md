@@ -4,6 +4,8 @@
 Install node-js. Then
 ```
 npm install
+npm i -g npm
+npm i —save lodash
 node_modules/.bin/grunt
 cd app
 npm install
