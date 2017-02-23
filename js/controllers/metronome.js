@@ -1,9 +1,10 @@
 window.controller = window.controller || {}
 controller.metronome = () => {
+  document.getElementById('metronome').setAttribute('disabled', true) 
   let min = 40 
   let max = 200
   let aids = []
-  for (let i=0; i< 1000; i++){
+  for (let i = 0; i < 1000; i++){
     aids.push(`a${i}`)
   }
   show(HAML.metronome({min, max, aids}))

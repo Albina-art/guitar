@@ -20,7 +20,7 @@ body {
 .titl {
 /*background: white;*/
 	border: 3px;
-	margin-left: 5px;
+	margin-left: 11px;
 }
 h1{
 	top: 20px;
@@ -46,4 +46,8 @@ h1{
 #tempwrite, #temp{
 	width: 150px;
 	margin-left: 110px;
+}
+button {
+	font-size: 0;
+	padding: 0;
 }
