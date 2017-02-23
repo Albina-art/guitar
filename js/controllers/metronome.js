@@ -3,60 +3,62 @@ controller.metronome = () => {
   let min = 40 
   let max = 200
   let aids = []
+  let num = 0
   for (let i = 0; i < 1000; i++){
     aids.push(`a${i}`)
   }
   show(HAML.metronome({min, max, aids}))
-     document.getElementById('tempwrite').value=document.getElementById('temp').value
-  let num = 0
-  var as
-  as = document.getElementsByTagName('audio')
-  let start = () => {
+
+  let stop_ = document.getElementById('stopmetro')
+  let start_ = document.getElementById('startmetro')
+  let temp_ = document.getElementById('temp')
+  let tempwrite_ = document.getElementById('tempwrite')
+  var as = document.getElementsByTagName('audio')
+  
+  let startmusic = () => {
     as[num].play()
     num = (num + 1) % as.length
-    let temp = parseInt(document.getElementById('temp').value)
-    return setInterval(()=>{
+    let temp = parseInt(temp_.value)
+    return setInterval( () => {
       as[num].play()
       num = (num + 1) % as.length
     }, parseInt(60000/temp) )
   }
+  
   let iid
   let flag = 0
-  document.getElementById('startmetro').addEventListener('click', (event) => {
-    iid = start(event.target.value)
+  
+  tempwrite_.value = temp.value
+  hendlerEvent('startmetro', 'click', (event) => {
     flag = 1
-    document.getElementById('startmetro').classList.add('hidden')
-    document.getElementById('stopmetro').classList.remove('hidden')
+    iid = startmusic(event.target.value)
+    start_.classList.add('hidden')
+    stop_.classList.remove('hidden')
   })
-  let val
-  document.getElementById('tempwrite').addEventListener('change',(event) =>{
-    if( document.getElementById('temp').value > max){
-      val = max
-    }
-    else if( document.getElementById('temp').value < min){
-      val = min
-    }
-    else {
-      val = document.getElementById('tempwrite').value
-    }
-    document.getElementById('temp').value = val
+  
+  hendlerEvent('tempwrite','change', (event) => {
+    let val = temp_.value
+    val = val > max ? max : val < min ? min : tempwrite_.value
+    temp_.value = val
     if (flag == 1) {
         clearInterval(iid)
-        iid = start(event.target.value)
+        iid = startmusic(event.target.value)
     }
   })
-  document.getElementById('temp').addEventListener('change',(event) => {
-    document.getElementById('tempwrite').value= document.getElementById('temp').value
-      if(flag == 1){
+
+  hendlerEvent('temp','change', (event) => {
+    tempwrite_.value = temp_.value
+      if (flag == 1) {
         clearInterval(iid)
-        iid = start(event.target.value)
+        iid = startmusic(event.target.value)
       }
   })
-  document.getElementById('stopmetro').addEventListener('click', (event) => {
+
+  hendlerEvent('stop','click', (event) => {
     flag = 0;
     [].forEach.call(as, (a) => {a.pause(); a.currentTime = 0;})
-    document.getElementById('startmetro').classList.remove('hidden')
-    document.getElementById('stopmetro').classList.add('hidden')
+    start_.classList.remove('hidden')
+    stop_.classList.add('hidden')
     clearInterval(iid)
   })
 }
