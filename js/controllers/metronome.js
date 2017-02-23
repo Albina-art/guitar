@@ -13,11 +13,13 @@ controller.metronome = () => {
   let start_ = document.getElementById('startmetro')
   let temp_ = document.getElementById('temp')
   let tempwrite_ = document.getElementById('tempwrite')
-  var as = document.getElementsByTagName('audio')
+  let as = document.getElementsByTagName('audio')
   
   let startmusic = () => {
     as[num].play()
     num = (num + 1) % as.length
+    //Функция parseInt() принимает строку в качестве аргумента и 
+    // возвращает целое число в соответствии с указанным основанием системы счисления
     let temp = parseInt(temp_.value)
     return setInterval( () => {
       as[num].play()

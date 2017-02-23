@@ -1,9 +1,9 @@
-.metro-wraper
+.metro-wrapper
   .audios.hidden
     - @aids.forEach (aid) ->
       %audio{'id' : aid, 'src': 'audio/1.mp3'}
   %h3.labtemp 
   %input#tempwrite 
   %input#temp{'type': 'range', 'name': 'temp', 'min': "#{@min}", 'max': "#{@max}"}
-  %img.btn#startmetro{'src': 'img/start.jpg'} 
-  %img.btn.hidden#stopmetro{'src': 'img/stop.jpg'}
+  %img.btn#startmetro{'src': 'img/metro/start.jpg'} 
+  %img.btn.hidden#stopmetro{'src': 'img/metro/stop.jpg'}

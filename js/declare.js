@@ -3,6 +3,7 @@
 // Все API-интерфейсы Node.js доступны в этом процессе.
 window.show = (teml, target) => {
     target = target || 'tab'
+    //innerHTML Оно позволяет получить HTML-содержимое элемента в виде строки
 	document.getElementById(target).innerHTML = teml
 }
 window.hendlerEvent = (id, event, fn) => {
