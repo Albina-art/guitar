@@ -7,8 +7,8 @@ a {
 body {
 	color: white;
 	background-color: ivory;
-	margin: 10px 100px 100px 100px;
-	/*margin:0 auto;*/
+	/*margin: 10px 100px 100px 100px;*/
+	margin:0 auto;
 }
 #app {
 	width: 360px;
