@@ -16,6 +16,8 @@ function createWindow () {
   mainWindow = new BrowserWindow({width: 360, height: 680})
   
 
+  // Open the DevTools.
+  // mainWindow.webContents.openDevTools()
   mainWindow.setMenu(null)
   mainWindow.setResizable(false)
   
@@ -29,8 +31,6 @@ function createWindow () {
   }))
   
 
-  // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {

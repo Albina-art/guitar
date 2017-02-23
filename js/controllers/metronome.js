@@ -1,6 +1,5 @@
 window.controller = window.controller || {}
 controller.metronome = () => {
-  document.getElementById('metronome').setAttribute('disabled', true) 
   let min = 40 
   let max = 200
   let aids = []
