@@ -18,8 +18,8 @@ function createWindow () {
 
   // Open the DevTools.
   //mainWindow.webContents.openDevTools()
-   mainWindow.setMenu(null)
-   mainWindow.setResizable(false)
+  mainWindow.setMenu(null)
+  mainWindow.setResizable(false)
   
 
 
