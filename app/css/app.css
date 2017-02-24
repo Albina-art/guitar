@@ -19,6 +19,7 @@ body {
 }
 #begin {
 	width: 60px;
+	height: 60px;
 }
 .titl {
 	border: 3px;
