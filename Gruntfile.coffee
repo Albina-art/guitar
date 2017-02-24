@@ -19,7 +19,7 @@ module.exports = (grunt) ->
       options:
         separator: ';'
       dev:
-        src: ["temp/templates.js", 'vendor/*.js', 'js/declare.js', 'js/api.js', 'js/controllers/*.js', 'js/init.js']
+        src: ["temp/templates.js", 'vendor/*.js', 'js/declare.js', 'js/include/*.js', 'js/controllers/*.js', 'js/init.js']
         dest: 'temp/es/app.js'
     watch:
       options:
@@ -30,7 +30,7 @@ module.exports = (grunt) ->
           # liverload: true
         # liverload: true
       concat:
-        files: ['temp/templates.js', 'vendor/*.js', 'js/declare.js', 'js/api.js', 'js/controllers/*.js', 'js/init.js']
+        files: ['temp/templates.js', 'vendor/*.js', 'js/declare.js', 'js/include/*.js', 'js/controllers/*.js', 'js/init.js']
         tasks: ['concat'],
         # options:
           # atBegin: true
