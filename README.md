@@ -10,7 +10,6 @@ node_modules/.bin/grunt
 cd app
 npm install
 npm start
-npm i —save lodash
 ```
 
 ## Build for windows
