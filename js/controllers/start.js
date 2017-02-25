@@ -17,6 +17,6 @@ controller.start = () => {
     document.getElementById('metronome').removeAttribute('disabled')  
     document.getElementById('test').removeAttribute('disabled') 
     document.getElementById('git').setAttribute('disabled', true)  
-    controller.github()
+    controller.github('metronome')
   })
 }
