@@ -17,16 +17,13 @@ body {
     /*background: url(../img/fone.jpg);*/
     background: url(../img/body.jpg);
 }
-#begin {
-	width: 60px;
-	height: 60px;
-}
 .titl {
 	border: 3px;
 	margin-left: 11px;
 }
 #butstart {
-	width: 60px;
+	width: 65px;
+	height: 64px;
 }
 
 .github {
