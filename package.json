@@ -34,6 +34,5 @@
   "devDependencies": {
     "electron": "^1.4.1",
     "grunt-contrib-cssmin": "^2.0.0",
-    "grunt-css": "^0.5.4"
   }
 }
