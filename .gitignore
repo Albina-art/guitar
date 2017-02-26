@@ -5,3 +5,5 @@ temp/*
 npm-debug.log
 *.swp
 dist
+app/css/*.css
+my-app

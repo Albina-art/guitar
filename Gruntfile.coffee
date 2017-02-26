@@ -1,5 +1,12 @@
 module.exports = (grunt) ->
   grunt.initConfig
+    cssmin:
+      dist:
+        expand: true,
+        cwd: 'css/',
+        src: ['*.css'],
+        dest: 'app/css',
+        ext: '.min.css'
     babel:
       options:
         sourceMap: true
@@ -24,17 +31,15 @@ module.exports = (grunt) ->
     watch:
       options:
         liverload: true
+      cssmin:
+        files: ['css/*.css'],
+        tasks: 'cssmin',
       haml:
         files: ['haml/[^~]*.haml'],
-        tasks: ['haml'],
-          # liverload: true
-        # liverload: true
+        tasks: 'haml',
       concat:
-        files: ['temp/templates.js', 'vendor/*.js', 'js/declare.js', 'js/include/*.js', 'js/controllers/*.js', 'js/init.js']
-        tasks: ['concat'],
-        # options:
-          # atBegin: true
-          # liverload: true
+        files: ['temp/templates.js', 'vendor/*.js', 'js/declare.js', 'js/include/*.js', 'js/controllers/*.js', 'js/init.js','css/*.css']
+        tasks: 'concat',
       babel:
         files: 'temp/es/app.js'
         tasks: 'babel'
@@ -46,6 +51,7 @@ module.exports = (grunt) ->
         limit: 20
         logConcurrentOutput: true
       cwatch: [
+        'watch:cssmin'
         'watch:haml',
         'watch:concat',
         'watch:babel',
@@ -62,6 +68,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-haml'
   grunt.loadNpmTasks 'grunt-concurrent'
   grunt.loadNpmTasks 'grunt-babel'
+  grunt.loadNpmTasks 'grunt-contrib-cssmin'
 
-  grunt.registerTask 'default', ['haml','concat','babel','concurrent:cwatch']
+  grunt.registerTask 'default', ['cssmin','haml','concat','babel','concurrent:cwatch']
   return
