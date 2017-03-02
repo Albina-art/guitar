@@ -21,6 +21,10 @@ body {
 	border: 3px;
 	margin-left: 11px;
 }
+.startbut {
+	background: transparent;
+	border: none;
+}
 #butstart {
 	width: 65px;
 	height: 64px;
