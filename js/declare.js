@@ -6,7 +6,7 @@ window.show = (teml, target) => {
     //innerHTML Оно позволяет получить HTML-содержимое элемента в виде строки
 	document.getElementById(target).innerHTML = teml
 }
-window.hendlerEvent = (id, event, fn) => {
+window.handlerEvent = (id, event, fn) => {
    document.getElementById(id).addEventListener(event, fn)
 } 
 window.controller = {}

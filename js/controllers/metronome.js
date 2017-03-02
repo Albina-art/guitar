@@ -31,14 +31,14 @@ controller.metronome = () => {
   let flag = 0
   
   tempwrite_.value = temp.value
-  hendlerEvent('startmetro', 'click', (event) => {
+  handlerEvent('startmetro', 'click', (event) => {
     flag = 1
     iid = startmusic(event.target.value)
     start_.classList.add('hidden')
     stop_.classList.remove('hidden')
   })
   
-  hendlerEvent('tempwrite','change', (event) => {
+  handlerEvent('tempwrite','change', (event) => {
     let val = temp_.value
     val = val > max ? max : val < min ? min : tempwrite_.value
     temp_.value = val
@@ -48,7 +48,7 @@ controller.metronome = () => {
     }
   })
 
-  hendlerEvent('temp','change', (event) => {
+  handlerEvent('temp','change', (event) => {
     tempwrite_.value = temp_.value
       if (flag == 1) {
         clearInterval(iid)
@@ -56,7 +56,7 @@ controller.metronome = () => {
       }
   })
 
-  hendlerEvent('stopmetro','click', (event) => {
+  handlerEvent('stopmetro','click', (event) => {
     flag = 0;
     [].forEach.call(as, (a) => {a.pause(); a.currentTime = 0;})
     start_.classList.remove('hidden')
