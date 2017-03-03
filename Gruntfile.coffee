@@ -1,5 +1,9 @@
 module.exports = (grunt) ->
   grunt.initConfig
+    uglify:
+      dist:
+        files:
+          'app/js/app.min.js': ['temp/es/app.js']
     cssmin:
       dist:
         expand: true,
@@ -13,7 +17,7 @@ module.exports = (grunt) ->
         presets: ['es2015']
       dist:
         files:
-          'app/js/app.js': 'temp/es/app.js'
+          'app/js/app.js': 'app/js/app.min.js'
     haml:
       templates:
         options:
@@ -42,7 +46,7 @@ module.exports = (grunt) ->
         tasks: 'concat',
       babel:
         files: 'temp/es/app.js'
-        tasks: 'babel'
+        tasks: ['uglify', 'babel']
         options:
           atBegin: true
           liverload: true
@@ -54,6 +58,7 @@ module.exports = (grunt) ->
         'watch:cssmin'
         'watch:haml',
         'watch:concat',
+        'uglify',
         'watch:babel',
       ]
 
@@ -70,5 +75,6 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-babel'
   grunt.loadNpmTasks 'grunt-contrib-cssmin'
 
-  grunt.registerTask 'default', ['cssmin','haml','concat','babel','concurrent:cwatch']
+  grunt.registerTask 'default', ['cssmin','haml','concat','uglify','babel']
+  # ,'concurrent:cwatch']
   return
