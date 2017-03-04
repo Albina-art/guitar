@@ -2,7 +2,7 @@ module.exports = (grunt) ->
   grunt.initConfig
     uglify:
       dist:
-        files: 'app/js/app.min.js': 'app/js/app.js'
+        files: 'app/js/app.min.js': 'temp/es/app.js'
     cssmin:
       dist:
         expand: true,
@@ -15,8 +15,11 @@ module.exports = (grunt) ->
         sourceMap: true
         presets: ['es2015']
       dist:
-        files:
-          'app/js/app.js': 'temp/es/app.js'
+        expand: true,
+        cwd: 'js/',
+        src: ['*.js'],
+        dest: 'bable/',
+        ext: '.js'
     haml:
       templates:
         options:
@@ -29,7 +32,7 @@ module.exports = (grunt) ->
       options:
         separator: ';'
       dev:
-        src: ["temp/templates.js", 'vendor/*.js', 'js/declare.js', 'js/include/*.js', 'js/controllers/*.js', 'js/init.js']
+        src: ["temp/templates.js", 'vendor/*.js', 'bable/*.js','bable/controllers/*.js']
         dest: 'temp/es/app.js'
     watch:
       options:
@@ -47,7 +50,7 @@ module.exports = (grunt) ->
         files: ['temp/templates.js', 'vendor/*.js', 'js/declare.js', 'js/include/*.js', 'js/controllers/*.js', 'js/init.js','css/*.css']
         tasks: 'concat',
       babel:
-        files: 'temp/es/app.js'
+        files: 'js/controllers/*.js'
         tasks: 'babel'
         options:
           atBegin: true
@@ -59,8 +62,8 @@ module.exports = (grunt) ->
       cwatch: [
         'watch:cssmin'
         'watch:haml',
-        'watch:concat',
         'watch:babel',
+        'watch:concat',
         'watch:uglify',
       ]
 
@@ -76,5 +79,5 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-babel'
   grunt.loadNpmTasks 'grunt-contrib-cssmin'
 
-  grunt.registerTask 'default', ['cssmin','haml','concat','babel','concurrent:cwatch']
+  grunt.registerTask 'default', ['cssmin','haml','babel','concat','uglify','concurrent:cwatch']
   return
