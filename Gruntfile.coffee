@@ -2,8 +2,7 @@ module.exports = (grunt) ->
   grunt.initConfig
     uglify:
       dist:
-        files:
-          'app/js/app.min.js': ['temp/es/app.js']
+        files: 'app/js/app.min.js': 'app/js/app.js'
     cssmin:
       dist:
         expand: true,
@@ -17,7 +16,7 @@ module.exports = (grunt) ->
         presets: ['es2015']
       dist:
         files:
-          'app/js/app.js': 'app/js/app.min.js'
+          'app/js/app.js': 'temp/es/app.js'
     haml:
       templates:
         options:
@@ -35,6 +34,9 @@ module.exports = (grunt) ->
     watch:
       options:
         liverload: true
+      uglify:
+        files: ['app/js/app.js']
+        tasks: 'uglify',
       cssmin:
         files: ['css/*.css'],
         tasks: 'cssmin',
@@ -46,7 +48,7 @@ module.exports = (grunt) ->
         tasks: 'concat',
       babel:
         files: 'temp/es/app.js'
-        tasks: ['uglify', 'babel']
+        tasks: 'babel'
         options:
           atBegin: true
           liverload: true
@@ -58,8 +60,8 @@ module.exports = (grunt) ->
         'watch:cssmin'
         'watch:haml',
         'watch:concat',
-        'uglify',
         'watch:babel',
+        'watch:uglify',
       ]
 
 
@@ -69,12 +71,10 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-uglify'
   grunt.loadNpmTasks 'grunt-contrib-copy'
   grunt.loadNpmTasks 'grunt-contrib-sass'
-  grunt.loadNpmTasks 'grunt-ng-annotate'
   grunt.loadNpmTasks 'grunt-haml'
   grunt.loadNpmTasks 'grunt-concurrent'
   grunt.loadNpmTasks 'grunt-babel'
   grunt.loadNpmTasks 'grunt-contrib-cssmin'
 
-  grunt.registerTask 'default', ['cssmin','haml','concat','uglify','babel']
-  # ,'concurrent:cwatch']
+  grunt.registerTask 'default', ['cssmin','haml','concat','babel','concurrent:cwatch']
   return
