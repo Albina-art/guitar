@@ -32,7 +32,7 @@ module.exports = (grunt) ->
       options:
         separator: ';'
       dev:
-        src: ["temp/templates.js", 'vendor/*.js', 'bable/*.js','bable/controllers/*.js']
+        src: ["temp/templates.js", 'vendor/*.js', 'bable/*.js', 'bable/controllers/*.js']
         dest: 'temp/es/app.js'
     watch:
       options:
