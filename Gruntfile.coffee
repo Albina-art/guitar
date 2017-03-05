@@ -2,7 +2,7 @@ module.exports = (grunt) ->
   grunt.initConfig
     uglify:
       dist:
-        files: 'app/js/app.min.js': 'temp/es/app.js'
+        files: 'app/js/app.js': 'temp/es/app.js'
     cssmin:
       dist:
         expand: true,
@@ -38,7 +38,7 @@ module.exports = (grunt) ->
       options:
         liverload: true
       uglify:
-        files: ['app/js/app.js']
+        files: ['temp/es/app.js']
         tasks: 'uglify',
       cssmin:
         files: ['css/*.css'],
