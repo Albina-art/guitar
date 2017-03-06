@@ -8,4 +8,4 @@ dist
 app/css/*.css
 my-app
 *.map
-bable
+babel

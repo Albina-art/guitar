@@ -17,8 +17,8 @@ module.exports = (grunt) ->
       dist:
         expand: true,
         cwd: 'js/',
-        src: ['*.js'],
-        dest: 'bable/',
+        src: ['**/*.js'],
+        dest: 'babel/',
         ext: '.js'
     haml:
       templates:
@@ -32,29 +32,29 @@ module.exports = (grunt) ->
       options:
         separator: ';'
       dev:
-        src: ["temp/templates.js", 'vendor/*.js', 'bable/*.js', 'bable/controllers/*.js']
+        src: ['temp/templates.js', 'vendor/*.js', 'babel/*.js', 'babel/controllers/*.js']
         dest: 'temp/es/app.js'
     watch:
       options:
         liverload: true
-      uglify:
-        files: ['temp/es/app.js']
-        tasks: 'uglify',
       cssmin:
         files: ['css/*.css'],
         tasks: 'cssmin',
       haml:
         files: ['haml/[^~]*.haml'],
         tasks: 'haml',
-      concat:
-        files: ['temp/templates.js', 'vendor/*.js', 'js/declare.js', 'js/include/*.js', 'js/controllers/*.js', 'js/init.js','css/*.css']
-        tasks: 'concat',
       babel:
         files: 'js/controllers/*.js'
         tasks: 'babel'
         options:
           atBegin: true
           liverload: true
+      concat:
+        files: ['temp/templates.js', 'vendor/*.js', 'bable/*.js', 'bable/controllers/*.js']
+        tasks: 'concat',
+      uglify:
+        files: ['temp/es/app.js']
+        tasks: 'uglify',
     concurrent:
       options:
         limit: 20
